@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <link rel="icon" href="images/icon.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="maincontainer">
+        <div class="sidebar">
+            <img src="images/qrpng.png" alt="qrpng">
+            <div class="textcontainer">
+                <h1> Generate QR Code </h1>
+                <p> Just in one qlick </p>
+            </div>
+        </div>
+        <div class="homecontainer">
+            <div class="home"> 
+                <h2>Enter text or URL.</h2>
+                <input type="text" id="qrInput" placeholder="text or url " >
+                <button id="generateBtn"> Generate QR Code </button>
+            </div>
+        </div>
+    </div>
+    <div id="qrpopup">
+        <h2>Qr Generated </h2>
+        <img src="" alt="qrImage" id="qrImg">
+        <button id="downloadBtn"  >Download Qr</button>
+          <button id="closeBtn">close</button>
+     </div>
+        <script src="app.js" ></script>
+
+</body>
+</html>
