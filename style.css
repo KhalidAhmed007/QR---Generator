@@ -1,134 +1,199 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 :root{
-    --font :'Inter', 'sans-serif';
+    --font: 'Inter', sans-serif;
 }
+
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
+
 body{
     background-color: black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
+
 #maincontainer{
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     background-image: url("images/qrBg.jpg");
     background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
-.sidebar,.homecontainer{
+
+/* -------- DESKTOP LAYOUT -------- */
+.sidebar, .homecontainer{
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
+
 .sidebar img{
-    width: 15%;
-    margin: 0 20px;
+    width: 120px;
+    margin-right: 25px;
 }
-.sidebar .textcontianer h1,
-.sidebar .textcontianer p{
-    font-family: var(--font);
-    margin-bottom: 5px;
 
+.textcontainer h1,
+.textcontainer p{
+    font-family: var(--font);
+    color: rgb(26, 25, 25);
 }
+
+/* HOME BOX */
 .home {
-    height: 200px;
-    width: 50%;
+    width: 60%;
+    max-width: 400px;
     background-color: white;
     box-shadow: 0 5px 10px black;
-    border-radius: 5px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
 }
+
 .home h2{
     font-family: var(--font);
-    
 }
+
 #qrInput{
-    height: 25px;
-    width: 80%;
+    height: 40px;
+    width: 90%;
     border-radius: 5px;
     border: 1px solid black;
-    margin : 15px 0 25px 0;
-    padding: 7px;
+    margin: 15px 0 25px 0;
+    padding: 8px;
     font-size: 16px;
     font-family: var(--font);
 }
-#generateBtn ,#closeBtn, #downloadBtn{
-    height: 35px;
-    width: 85%;
+
+#generateBtn, #closeBtn, #downloadBtn{
+    height: 40px;
+    width: 90%;
     background-color: black;
     color: white;
-    border :none;
+    border:none;
     border-radius: 5px;
     font-family: var(--font);
     font-size: 16px;
     cursor: pointer;
+    margin: 5px 0;
     transition: transform 0.3s;
 }
-#generateBtn:hover ,#closeBtn, #downloadBtn  {
-    transform: scale(1.01);
 
+#generateBtn:hover,
+#closeBtn:hover,
+#downloadBtn:hover{
+    transform: scale(1.03);
 }
+
+/* POPUP */
 #qrpopup{
-    height: 450px;
+    height: 430px;
     width: 300px;
     background-color: black;
-    position: absolute;
-    bottom: 60%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
     border-radius: 10px;
-    box-shadow: 0 5px 10px #212121; 
+    box-shadow: 0 5px 10px #212121;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
-    opacity: 0;
-    transform: scale(0);
-    transition: transform 0.5s ease-in-out,
-                opacity 0.5s ,
-                bottom 0.5s ease-in-out;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 10;
 }
-#qrpopup.show{
-    transform: scale(1);
-    opacity: 1;
-    bottom: 15%;
 
+#qrpopup.show{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
+
 #qrpopup h2{
     color: white;
- font-family: var(--font);
+    font-family: var(--font);
 }
-#downloadBtn{
-        width: 70%;
-        background-color: white;
-        color: black;
-        margin: 3px 0;
-}
-#closeBtn{
-        width: 70%;
-        border : 1px solid white;
-        margin: 3px 0;
 
+#downloadBtn{
+    width: 70%;
+    background-color: white;
+    color: black;
 }
+
+#closeBtn{
+    width: 70%;
+    border: 1px solid white;
+}
+
 #qrImg {
     width: 70%;
     border: 8px solid white;
     border-radius: 5px;
     margin: 20px 0 25px;
 }
+
 #maincontainer.opacity {
     opacity: 0.4;
 }
+
+/*-----------------------------------
+   📱 RESPONSIVE DESIGN (MOBILE)
+------------------------------------*/
+@media (max-width: 900px){
+    
+    #maincontainer{
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .sidebar, .homecontainer{
+        width: 100%;
+        margin-bottom: 30px;
+        flex-direction: column;
+    }
+
+    .sidebar img{
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .textcontainer h1{
+        font-size: 28px;
+    }
+
+    .textcontainer p{
+        font-size: 16px;
+    }
+
+    .home{
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .sidebar img{
+        width: 120px;
+    }
+
+    .textcontainer h1{
+        font-size: 24px;
+    }
+
+    .home{
+        padding: 18px;
+    }
+}
+
